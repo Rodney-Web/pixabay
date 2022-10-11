@@ -2,7 +2,7 @@ import {
   View,
   SafeAreaView, 
 } from 'react-native'
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { Context } from '../context/DataContext';
 import { useNavigation } from '@react-navigation/native';
 import SearchResults from '../components/SearchResults';
@@ -14,7 +14,7 @@ export default function ResultsScreen({ search }) {
   const navigation = useNavigation()
   
   //mounted the api call to prevent infinite loop.
-  useEffect(() => {
+  useMemo(() => {
     fetchData(search)
   }, [search])
 
